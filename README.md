@@ -14,4 +14,6 @@ Very simple !
 3. **Infrastructure-Builder** will provision you resources
 
 ## What is Infrastructure-Builder ?
-![](images/lat.png)
+[Cloud Build](https://cloud.google.com/cloud-build) makes use of [Cloud builders](https://cloud.google.com/cloud-build/docs/cloud-builders)
+
+<img src="images/infrastructure-builder.png" width="70%"/>
