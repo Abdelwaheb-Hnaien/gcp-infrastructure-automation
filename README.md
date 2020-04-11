@@ -1,6 +1,6 @@
 # Infrastructure automation on Google Cloud Platform
 
-## What you need to know ?
+## What you need to know before guetting started ?
 1. Google Cloud Platform
 2. Terraform & IaC
 3. Pipelines on Cloud Build
