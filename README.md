@@ -21,6 +21,8 @@ Infrastructure-builder is a custom builder that runs Terraform, go and python.
 
 When you push your code to container registery Infrastructure-builder will execute the following pipeline:
 
+<img src="images/pipeline.png" width="70%"/>
+
 
 
 1. Set up **Infrastructure-Builder** on your project
