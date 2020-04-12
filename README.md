@@ -18,7 +18,8 @@ Infrastructure-builder is a custom builder that runs Terraform, go and python.
 ## How this works ?
 
 ### Overview : 
-<img src="images/Infra-builder.png" width="70%"/>
+
+<img src="images/infrastructure-builder.png" width="70%"/>
 
 ### Details :
 Pushing the code (IaC) to container registery should trigger cloud build which will use Infrastructure builder to execute each step of the following pipeline in order to create resources : 
