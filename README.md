@@ -5,7 +5,7 @@
 2. Terraform & IaC
 3. Pipelines on Cloud Build
 
-## Breif introduction
+## Brief introduction
 
 A Cloud builder is a container image with commun language and tools installed in them. 
 
@@ -17,17 +17,16 @@ Infrastructure-builder is a custom builder that runs Terraform, go and python.
 
 ## How this works ?
 
-<img src="images/infrastructure-builder.png" width="70%"/>
+### Overview : 
+<img src="images/Infra-builder.png" width="70%"/>
 
-When you push your IaC to container registery Infrastructure-builder will execute the following pipeline:
+### Details :
+Pushing the code (IaC) to container registery should trigger cloud build which will use Infrastructure builder to execute each step of the following pipeline in order to create resources : 
 
 <img src="images/pipeline.png" width="70%"/>
 
-
-1. **Templating** : Infrastructure-builder supports __jinja templating__, your infrastructure variables should be in a yaml format (a yaml file/environment):
-
-
-<img src="images/config.png" width="30%"/>
+1. **Templating** : As a best practice when you write IaC, We recommand that you group together the infrastructure variables in a config.yaml file (a file/environment) sinceInfrastructure-builder supports __jinja templating__, 
+the first step will feed those variables to the main code, next is an example of writing a Storage bucket and a Compute Instance with templating: <img src="images/config.png" width="70%"/>
 
 
 
