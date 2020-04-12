@@ -27,7 +27,7 @@ When you push your IaC to container registery Infrastructure-builder will execut
 1. **Templating** : Infrastructure-builder supports __jinja templating__, your infrastructure variables should be in a yaml format (a yaml file/environment):
 
 
-<img src="images/infrastructure-builder.png" width="70%"/>
+<img src="images/config.png" width="30%"/>
 
 
 
