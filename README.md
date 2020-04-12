@@ -19,16 +19,13 @@ Infrastructure-builder is a custom builder that runs Terraform, go and python.
 
 <img src="images/infrastructure-builder.png" width="70%"/>
 
-When you push your code to container registery Infrastructure-builder will execute the following pipeline:
+When you push your IaC to container registery Infrastructure-builder will execute the following pipeline:
 
 <img src="images/pipeline.png" width="70%"/>
 
 
+1. **Templating** : Infrastructure-builder supports __jinja templating__, your infrastructure variables should be in a yaml format (a yaml file/environment):
 
-1. Set up **Infrastructure-Builder** on your project
-1. Write you **IaC**
-2. Push the code to a Google Cloud repository
-3. **Infrastructure-Builder** will provision you resources
 
 <img src="images/infrastructure-builder.png" width="70%"/>
 
