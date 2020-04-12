@@ -26,7 +26,8 @@ Pushing the code (IaC) to container registery should trigger cloud build which w
 <img src="images/pipeline.png" width="70%"/>
 
 1. **Templating** : As a best practice when you write IaC, We recommand that you group together the infrastructure variables in a config.yaml file (a file/environment) sinceInfrastructure-builder supports __jinja templating__, 
-the first step will feed those variables to the main code, next is an example of writing a Storage bucket and a Compute Instance with templating: <img src="images/config.png" width="70%"/>
+the first step will feed those variables to the main code, next is an example of writing a Storage bucket and a Compute Instance with templating: 
+<img src="images/config.png" width="70%"/>
 
 
 
