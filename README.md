@@ -96,6 +96,7 @@ You tell infrastructure builder about which config file to use by setting he ENV
   
 9) Commit and push to the repository created in step 3. 
   
-Check Cloud build history :
+Check Cloud build history, resources should be created successefully :
 
+<img src="images/finish_build.png" width="40%"/>
 
