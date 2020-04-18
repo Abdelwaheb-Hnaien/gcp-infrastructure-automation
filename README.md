@@ -62,7 +62,7 @@ In this demo we will deploy the following infrastructure :
 
 <img src="images/demo.png" width="30%"/>
 
-Two compute instances, each one of them will run a different startup script to install apache web server and modify index.html so that instance 1 will return **Hello from Belgium**, instance 2 will return **Hello from London** (based on the geographic location), group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
+A Google storage bucket, Two compute instances, each one of them will run a different startup script to install apache web server and modify index.html so that instance 1 will return **Hello from Belgium**, instance 2 will return **Hello from London** (based on the geographic location), group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
 
 1) Make sure infrastructure-builder is available in your project and that Cloud build has sufficient permissions to create resources.
 
