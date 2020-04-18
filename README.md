@@ -51,7 +51,10 @@ The step supports one of the following argument :<br/>
 
 ## How to set up infrastructur builder in my GCP project ?
 Infrastructure builder should be available in conatiner registery within your project.
-Check this repository to make the tool available in your project.
+
+The tool will inherit permissions from Cloud Build.  So make sure to grant Cloud build sufficient permissions to be able to create resources in your project.
+
+See full set up instructions.
 
 ## Demo :
 
@@ -59,9 +62,11 @@ In this demo we will deploy the following infrastructure :
 
 <img src="images/demo.png" width="30%"/>
 
-Two compute instances, each one of them will run a startup script to install apache web server and modify index.html so that instance 1 will return **Hello from Belgium**, instance 2 will return **Hello from London**, group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
+Two compute instances, each one of them will run a different startup script to install apache web server and modify index.html so that instance 1 will return **Hello from Belgium**, instance 2 will return **Hello from London** (based on the geographic location), group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
 
-1) Make sure infrastructure-builder is available in your project
+1) Make sure infrastructure-builder is available in your project and that Cloud build has sufficient permissions to create resources.
+
+2) Create a Google storage backet to be used as a backend for Terraform
 
 2) Clone this repository.
 
@@ -77,16 +82,20 @@ If you are devoloping the same Infrastructure for different environments than yo
 
 You tell infrastructure builder about which config file to use by setting he ENV variable in **Cloudbuild.yaml**.
 
-3) Create a repository on Google Cloud Repositories
+3) Create a repository on Google Cloud Repositories in your project
 
 4) Set up a trigger in cloud build and set ”Cloud Source Repository” as a repository hosting option
 
-5) Select the repository you created in step 2
+5) Select the repository you created in step 3
 
-6) In the trigger settings Select ”Cloud  Build  configuration file (yaml or json)” as a build configuration and remain other settings to the default and 
+6) In the trigger settings Select ”Cloud  Build  configuration file (yaml or json)” as a build configuration and remain other settings to the default
 
 7) Set "Cloud build configuration file" to **/devops/Cloudbuld.yaml**
 
-8) Go to IAM \& Admin -> IAM, grant compute engine service account sufficient permissions to deploy infrastructure.
+8) Set <your-project-id> in Cloudbuild.yaml, change the backend bucket name in config.yaml
+  
+9) Commit and push to the repository created in step 3. 
+  
+Check Cloud build history :
 
-9) Set <your-project-id> in Cloudbuild.yaml, commit and push the project to the repository. 
+
