@@ -61,28 +61,32 @@ In this demo we will deploy the following infrastructure :
 
 Two compute instances, each one of them will run a startup script to install apache web server and modify index.html so that instance 1 will return **Hello from Belgium**, instance 2 will return **Hello from London**, group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
 
-0. Make sure infrastructure-builder is available in your project 
+**1 - Make sure infrastructure-builder is available in your project **
 
-1. Clone this repository which an example of a project with many folders.
+**2 - Clone this repository.
 
-Notice : all folders are optionals except **DevOps**. It should be in the root of your repository and it should also keep the following structure:
+__Notice__ : all folders are optionals except **DevOps**. It should be in the repository **root** folder and has the following structure:
 
 <img src="images/devops.png" width="40%"/>
 
 **modules** folder (optional): contains resource modules (in case you are writing modular IaC).
 
-Folders in config/ represents your environments (dev, staging, prod, etc), each folder has a config.yaml file.
+Folders in **config/** represents your environments (dev, staging, prod, etc), each folder has a config.yaml file.
 
 If you are devoloping the same Infrastructure for different environments than your config file should be in **config/\<your environment name>**
 
 You tell infrastructure builder about which config file to use by setting he ENV variable in **Cloudbuild.yaml**.
 
-2. Create a repository on Google Cloud Repositories
+**3 - Create a repository on Google Cloud Repositories
 
-3. Set up a trigger in cloud build selecting ”Cloud Source Repository” as a repository hosting option
+**4 - Set up a trigger in cloud build and set ”Cloud Source Repository” as a repository hosting option
 
-4. Select the repository you created in step 2
+**5 - Select the repository you created in step 2
 
-5. In the trigger settings make sure to set the build configuration to ”Cloud  Build  configuration file (yaml or json)” and remain other settings to the default and set "Cloud build configuration file" to **/devops/Cloudbuld.yaml**
+**6 - In the trigger settings Select ”Cloud  Build  configuration file (yaml or json)” as a build configuration and remain other settings to the default and 
 
-6. set <your-project-id> in Cloudbuild.yaml, commit and push the project to the repository.
+**7 - Set "Cloud build configuration file" to **/devops/Cloudbuld.yaml**
+
+**8 - Go to IAM \& Admin -> IAM, grant compute engine service account sufficient permissions to deploy infrastructure.
+
+**9 - Set <your-project-id> in Cloudbuild.yaml, commit and push the project to the repository. 
