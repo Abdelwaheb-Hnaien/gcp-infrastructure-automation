@@ -57,6 +57,9 @@ Check this repository to make the tool available in your project.
 
 In this demo we will deploy the following infrastructure :
 
+<img src="images/demo.png" width="30%"/>
+
+Two compute instances, each one of them will run a startup script to install apache web server and modify index.html so that instance 1 will return **Hello from Belgium**, instance 2 will return **Hello from London**, group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
 
 0. Make sure infrastructure-builder is available in your project 
 
@@ -64,7 +67,7 @@ In this demo we will deploy the following infrastructure :
 
 Notice : all folders are optionals except **DevOps**. It should be in the root of your repository and it should also keep the following structure:
 
-<img src="images/devops.png" width="30%"/>
+<img src="images/devops.png" width="40%"/>
 
 **modules** folder (optional): contains resource modules (in case you are writing modular IaC).
 
