@@ -53,4 +53,4 @@ Infrastructure builder should be available in conatiner registery. Check this re
 
 Clone this repository which an example of a project with many folders.
 DevOps folder is mandatory in the project, and it should keep the following structure:
-<img src="images/devops.png" width="70%"/>
+<img src="images/devops.png" width="30%"/>
