@@ -30,9 +30,10 @@ Pushing the code (IaC) to container registery should trigger cloud build which w
 
 Infrastructure-builder supports __jinja templating__, that's  why the first step of the automation pipeline will be feed those variables to the main code, next is an example of writing a Storage bucket and a Compute Instance with templating:<br/><br/> <img src="images/templating.png"/><br/><br/> Templating step will generate the following IaC: <br/><br/> <img src="images/iac.png" width="70%"/>
 
+2. **Provisionning** : Provisioning will simply run different Terraform commands (plan, apply) to deploy infrastructure.
+
+The two steps are embedded together in the following declaration of **Cloudbuild.yaml** :<br/><br/> <img src="images/cloudbuild.png" width="70%"/>
+
 ## How to set up infrastructur builder in my GCP project ?
-
-1. **Provisionning** : Provisioning will simply run different Terraform commands (plan, apply) to deploy infrastructure.
-
 
 
