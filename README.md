@@ -29,35 +29,40 @@ Pushing the code (IaC) to container registery should trigger cloud build which w
 <img src="images/pipeline.png" width="70%"/>
 
 #### Templating :
-A practice when writing IaC is to separate configuration from logic, i.e to group together the infrastructure variables in a **config.yaml** file (a file/environment).
+Templating is a good idea when you would like to create the same resource several times with different parameters.
+A best practice when writing IaC is to separate configuration from logic, i.e to group together the infrastructure variables in a **config.yaml** file per environment:
 
 <img src="images/env.png" width="30%"/>
 
-Infrastructure-builder supports __jinja templating__, that's  why the first step of the automation pipeline will feed those variables into the main code, next is an example of writing a Storage bucket and a Compute Instance with templating:
+Infrastructure-builder supports __jinja templating__, The step before provisioning is to feed those variables into the main code, next is an example of writing a Storage bucket and a Compute Instance with templating:
 <img src="images/templating.png"/>
 Templating step will generate the following IaC: <br/><br/> <img src="images/iac.png" width="70%"/>
 
 #### Provisioning : 
 Provisioning will simply run different Terraform commands (plan, apply) to deploy infrastructure.
 
-The two steps are embedded together in the following declaration of **Cloudbuild.yaml** :
+Templating and Provioning are embedded together in the following declaration of **Cloudbuild.yaml** within your project :
 <img src="images/cloudbuild.png" width="70%"/>
 
-This step supports only one argument that could be:<br/>
+The step supports one of the following argument :<br/>
 - __dry-deploy__: Infrastructure_builder will preform templating then terraform **plan**<br/>
 - __deploy__: Infrastructure_builder will preform templating then terraform **apply**<br/>
 - __clean__: Infrastructure_builder will preform templating then terraform **destroy**<br/>
 
 ## How to set up infrastructur builder in my GCP project ?
-Infrastructure builder should be available in conatiner registery. Check this repository.
+Infrastructure builder should be available in conatiner registery within your project.
+Check this repository to make the tool available in your project.
 
 ## Demo :
 
-0. Make sure that infrastructure-builder is available in your project 
+In this demo we will deploy the following infrastructure :
+
+
+0. Make sure infrastructure-builder is available in your project 
 
 1. Clone this repository which an example of a project with many folders.
 
-DevOps folder should be in the repository root folder and is mandatory, it should also keep the following structure:
+Notice : all folders are optionals except **DevOps**. It should be in the root of your repository and it should also keep the following structure:
 
 <img src="images/devops.png" width="30%"/>
 
