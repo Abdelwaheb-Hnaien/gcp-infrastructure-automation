@@ -34,6 +34,12 @@ Infrastructure-builder supports __jinja templating__, that's  why the first step
 
 The two steps are embedded together in the following declaration of **Cloudbuild.yaml** :<br/><br/> <img src="images/cloudbuild.png" width="70%"/>
 
+This step supports only one argument that could be:<br/>
+⋅⋅1. __dry-deploy__: Infrastructure_builder will preform templating then terraform **plan**<br/>
+⋅⋅2. __deploy__: Infrastructure_builder will preform templating then terraform **apply**<br/>
+⋅⋅3. __clean__: Infrastructure_builder will preform templating then terraform **destroy**<br/>
+
+
 ## How to set up infrastructur builder in my GCP project ?
 
 
