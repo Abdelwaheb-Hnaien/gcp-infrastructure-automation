@@ -98,5 +98,5 @@ You tell infrastructure builder about which config file to use by setting he ENV
   
 Check Cloud build history, resources should be created successefully :
 
-<img src="images/finish_build.png" width="40%"/>
+<img src="images/finish_build.png" width="70%"/>
 
