@@ -26,20 +26,29 @@ Pushing the code (IaC) to container registery should trigger cloud build which w
 
 <img src="images/pipeline.png" width="70%"/>
 
-1. **Templating** : A practice when writing IaC is to separate configuration from logic, i.e to group together the infrastructure variables in a **config.yaml** file (a file/environment).<br/><br/> <img src="images/env.png" width="30%"/>
+#### Templating :
+A practice when writing IaC is to separate configuration from logic, i.e to group together the infrastructure variables in a **config.yaml** file (a file/environment).
 
-Infrastructure-builder supports __jinja templating__, that's  why the first step of the automation pipeline will be feed those variables to the main code, next is an example of writing a Storage bucket and a Compute Instance with templating:<br/><br/> <img src="images/templating.png"/><br/><br/> Templating step will generate the following IaC: <br/><br/> <img src="images/iac.png" width="70%"/>
+<img src="images/env.png" width="30%"/>
 
-2. **Provisionning** : Provisioning will simply run different Terraform commands (plan, apply) to deploy infrastructure.
+Infrastructure-builder supports __jinja templating__, that's  why the first step of the automation pipeline will feed those variables into the main code, next is an example of writing a Storage bucket and a Compute Instance with templating:
+<img src="images/templating.png"/>
+Templating step will generate the following IaC: <br/><br/> <img src="images/iac.png" width="70%"/>
 
-The two steps are embedded together in the following declaration of **Cloudbuild.yaml** :<br/><br/> <img src="images/cloudbuild.png" width="70%"/>
+#### Provisioning : 
+Provisioning will simply run different Terraform commands (plan, apply) to deploy infrastructure.
+
+The two steps are embedded together in the following declaration of **Cloudbuild.yaml** :
+<img src="images/cloudbuild.png" width="70%"/>
 
 This step supports only one argument that could be:<br/>
 - __dry-deploy__: Infrastructure_builder will preform templating then terraform **plan**<br/>
 - __deploy__: Infrastructure_builder will preform templating then terraform **apply**<br/>
 - __clean__: Infrastructure_builder will preform templating then terraform **destroy**<br/>
 
-
 ## How to set up infrastructur builder in my GCP project ?
+Infrastructure builder should be available in conatiner registery. Check this repository.
+
+## Demo : 
 
 
