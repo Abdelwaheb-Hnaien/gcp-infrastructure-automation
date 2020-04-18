@@ -61,9 +61,9 @@ In this demo we will deploy the following infrastructure :
 
 Two compute instances, each one of them will run a startup script to install apache web server and modify index.html so that instance 1 will return **Hello from Belgium**, instance 2 will return **Hello from London**, group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
 
-**1 - Make sure infrastructure-builder is available in your project **
+1) Make sure infrastructure-builder is available in your project
 
-**2 - Clone this repository.
+2) Clone this repository.
 
 __Notice__ : all folders are optionals except **DevOps**. It should be in the repository **root** folder and has the following structure:
 
@@ -77,16 +77,16 @@ If you are devoloping the same Infrastructure for different environments than yo
 
 You tell infrastructure builder about which config file to use by setting he ENV variable in **Cloudbuild.yaml**.
 
-**3 - Create a repository on Google Cloud Repositories
+3) Create a repository on Google Cloud Repositories
 
-**4 - Set up a trigger in cloud build and set ”Cloud Source Repository” as a repository hosting option
+4) Set up a trigger in cloud build and set ”Cloud Source Repository” as a repository hosting option
 
-**5 - Select the repository you created in step 2
+5) Select the repository you created in step 2
 
-**6 - In the trigger settings Select ”Cloud  Build  configuration file (yaml or json)” as a build configuration and remain other settings to the default and 
+6) In the trigger settings Select ”Cloud  Build  configuration file (yaml or json)” as a build configuration and remain other settings to the default and 
 
-**7 - Set "Cloud build configuration file" to **/devops/Cloudbuld.yaml**
+7) Set "Cloud build configuration file" to **/devops/Cloudbuld.yaml**
 
-**8 - Go to IAM \& Admin -> IAM, grant compute engine service account sufficient permissions to deploy infrastructure.
+8) Go to IAM \& Admin -> IAM, grant compute engine service account sufficient permissions to deploy infrastructure.
 
-**9 - Set <your-project-id> in Cloudbuild.yaml, commit and push the project to the repository. 
+9) Set <your-project-id> in Cloudbuild.yaml, commit and push the project to the repository. 
