@@ -9,7 +9,9 @@
 
 A Cloud builder is a container image with commun language and tools installed in them. 
 
-[Cloud Build](https://cloud.google.com/cloud-build) makes use of [Cloud builders](https://cloud.google.com/cloud-build/docs/cloud-builders) to perform the steps you define in the Cloudbuild.yaml file, check the link below to know more about writing Cloudbuild.yaml, some of the native builders are gcloud, docker, mvn, etc. The complete list of supported builders for Cloud Build is [here](https://github.com/GoogleCloudPlatform/cloud-builders).
+[Cloud Build](https://cloud.google.com/cloud-build) makes use of [Cloud builders](https://cloud.google.com/cloud-build/docs/cloud-builders) to perform the steps you define in the Cloudbuild.yaml file, check the link below to know more about writing Cloudbuild.yaml files. 
+
+Some of the native builders are gcloud, docker, mvn, etc. The complete list of supported builders for Cloud Build is [here](https://github.com/GoogleCloudPlatform/cloud-builders).
 
 ## What is Infrastructure-Builder ?
 
@@ -51,9 +53,28 @@ Infrastructure builder should be available in conatiner registery. Check this re
 
 ## Demo :
 
-Clone this repository which an example of a project with many folders.
+0. Make sure that infrastructure-builder is available in your project 
 
-DevOps folder should be in the root of your repository and is mandatory in the project, it should also keep the following structure:
+1. Clone this repository which an example of a project with many folders.
+
+DevOps folder should be in the repository root folder and is mandatory, it should also keep the following structure:
 
 <img src="images/devops.png" width="30%"/>
 
+**modules** folder (optional): contains resource modules (in case you are writing modular IaC).
+
+Folders in config/ represents your environments (dev, staging, prod, etc), each folder has a config.yaml file.
+
+If you are devoloping the same Infrastructure for different environments than your config file should be in **config/\<your environment name>**
+
+You tell infrastructure builder about which config file to use by setting he ENV variable in **Cloudbuild.yaml**.
+
+2. Create a repository on Google Cloud Repositories
+
+3. Set up a trigger in cloud build selecting ”Cloud Source Repository” as a repository hosting option
+
+4. Select the repository you created in step 2
+
+5. In the trigger settings make sure to set the build configuration to ”Cloud  Build  configuration file (yaml or json)” and remain other settings to the default and set "Cloud build configuration file" to **/devops/Cloudbuld.yaml**
+
+6. set <your-project-id> in Cloudbuild.yaml, commit and push the project to the repository.
