@@ -52,7 +52,7 @@ The step supports one of the following argument :<br/>
 ## How to set up infrastructur builder in my GCP project ?
 Infrastructure builder should be available in conatiner registery within your project.
 
-The tool will inherit permissions from Cloud Build.  So make sure to grant Cloud build sufficient permissions to be able to create resources in your project.
+The tool will inherit permissions from Cloud Build, so make sure to grant Cloud build the appropriate access rights to create resources in your project.
 
 See full set up instructions.
 
@@ -62,7 +62,7 @@ In this demo we will deploy the following infrastructure :
 
 <img src="images/demo.png" width="30%"/>
 
-A Google storage bucket, Two compute instances, each one of them will run a different startup script to install apache web server and modify index.html so that instance 1 will return **Hello from Belgium**, instance 2 will return **Hello from London** (based on the geographic location), group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
+A Google storage bucket, and two compute instances, each instance will run a different startup script to install apache web server. The script will also modify index.html so that _instance 1_ will return **Hello from Belgium**, _instance 2_ will return **Hello from London** (based on the geographic location), then group together the two instances in a node pool and create a TCP Load Balancer to route the income trafic to the node pool just created.
 
 1) Make sure infrastructure-builder is available in your project and that Cloud build has sufficient permissions to create resources.
 
