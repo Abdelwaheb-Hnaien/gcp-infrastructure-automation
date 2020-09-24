@@ -54,7 +54,7 @@ Infrastructure builder should be available in conatiner registery within your pr
 
 The tool will inherit permissions from Cloud Build, so make sure to grant Cloud build the appropriate access rights to create resources in your project.
 
-See full set up instructions.
+See full set up instructions. https://github.com/Abdelwaheb-Hnaien/infrastructure-builder
 
 ## Demo :
 
