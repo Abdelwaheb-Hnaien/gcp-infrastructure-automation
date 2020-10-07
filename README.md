@@ -50,14 +50,20 @@ The step supports one of the following argument :<br/>
 - __clean__: Infrastructure_builder will preform templating then terraform **destroy**<br/>
 
 ## How to set up infrastructur builder in my GCP project ?
-- In Dockerfile, commented steps are for Infrastructure driven test
-if you consider developping test for your infrastructure uncomment them before building the image.
+Before you begin check Dockerfile, there are a number of commented lines (steps) for Infrastructure driven test with Terratest (Go language). If you consider developping tests for your infrastructure, uncomment them before building the image.
 
-- Infrastructure builder will be created in Container Registery within your project. CHANGE [your-project-id] in cloudbuild.yaml and create a trigger so that Cloudbuild will create the image when you push your code.
+Notice that after running the following steps infrastructure builder will be created in Container Registery within your project.
 
+1. CHANGE [your-project-id] in cloudbuild.yaml, this should be your GCP project where infrastructure builder will be created.
+
+2. Go to your project and create a repository on Cloud Source Repositories.
+
+3. Create a trigger for the repository you have just created. The trigger should points to a Dockerfile so that Cloudbuild will create the image when you push your code.
+
+Make sure Cloud Build can push containers to Container registery, the default service account for CloudBuild is Compute Engine service account which has the editor role in your project.. if so, you don't have to change anything.
 Then, Infrastructure builder should be available in conatiner registery within your project.
 
-The tool will inherit permissions from Cloud Build, so make sure to grant Cloud build the appropriate access rights to create resources in your project.
+Each time you call the builder in CloudBuild steps, it will inherit permissions from Cloud Build itself, so make sure to grant Cloud build the appropriate access rights to create resources in the destination project.
 
 ## Demo :
 
