@@ -50,7 +50,7 @@ The step supports one of the following argument :<br/>
 - __clean__: Infrastructure_builder will preform templating then terraform **destroy**<br/>
 
 ## How to set up infrastructur builder in my GCP project ?
-Before you begin check Dockerfile, there are a number of commented lines (steps) for Infrastructure driven test with Terratest (Go language). If you consider developping tests for your infrastructure, uncomment them before building the image.
+Before you begin check Dockerfile, there are a number of commented lines (steps) for Infrastructure driven test with Terratest (Go language, check https://terratest.gruntwork.io/ for more information). If you consider developping tests for your infrastructure, uncomment them before building the image.
 
 Notice that after running the following steps infrastructure builder will be created in Container Registery within your project.
 
