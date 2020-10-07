@@ -58,7 +58,7 @@ Notice that after running the following steps infrastructure builder will be cre
 
 2. Go to your project and create a repository on Cloud Source Repositories.
 
-3. Create a trigger for the repository you have just created. The trigger should points to a Dockerfile so that Cloudbuild will create the image when you push your code.
+3. Create a trigger for the repository you have just created. The trigger should points to a Dockerfile so that Cloudbuild will create the image when you push your code (Don't forget to enable the trigger).
 
 Make sure Cloud Build can push containers to Container registery, the default service account for CloudBuild is Compute Engine service account which has the editor role in your project.. if so, you don't have to change anything.
 Then, Infrastructure builder should be available in conatiner registery within your project.
