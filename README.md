@@ -7,9 +7,9 @@
 
 ## Brief introduction
 
-A Cloud builder is a container image with commun language and tools installed in them. 
+A Cloud builder is a container image with commun language and tools installed in them.
 
-[Cloud Build](https://cloud.google.com/cloud-build) makes use of [Cloud builders](https://cloud.google.com/cloud-build/docs/cloud-builders) to perform the steps you define in the Cloudbuild.yaml file, check the link below to know more about writing Cloudbuild.yaml files. 
+[Cloud Build](https://cloud.google.com/cloud-build) makes use of [Cloud builders](https://cloud.google.com/cloud-build/docs/cloud-builders) to perform the steps you define in the Cloudbuild.yaml file, check the link below to know more about writing Cloudbuild.yaml files.
 
 Some of the native builders are gcloud, docker, mvn, etc. The complete list of supported builders for Cloud Build is [here](https://github.com/GoogleCloudPlatform/cloud-builders).
 
@@ -19,12 +19,12 @@ Infrastructure-builder is a custom builder that runs Terraform, go and python.
 
 ## How this works ?
 
-### Overview : 
+### Overview :
 
 <img src="images/infrastructure-builder.png" width="70%"/>
 
 ### Details :
-Pushing the code (IaC) to container registery should trigger cloud build which will use Infrastructure builder to execute each step of the following pipeline in order to create resources : 
+Pushing the code (IaC) to container registery should trigger cloud build which will use Infrastructure builder to execute each step of the following pipeline in order to create resources :
 
 <img src="images/pipeline.png" width="70%"/>
 
@@ -38,7 +38,7 @@ Infrastructure-builder supports __jinja templating__, The step before provisioni
 <img src="images/templating.png"/>
 Templating step will generate the following IaC: <br/><br/> <img src="images/iac.png" width="70%"/>
 
-#### Provisioning : 
+#### Provisioning :
 Provisioning will simply run different Terraform commands (plan, apply) to deploy infrastructure.
 
 Templating and Provioning are embedded together in the following declaration of **Cloudbuild.yaml** within your project :
@@ -50,11 +50,14 @@ The step supports one of the following argument :<br/>
 - __clean__: Infrastructure_builder will preform templating then terraform **destroy**<br/>
 
 ## How to set up infrastructur builder in my GCP project ?
-Infrastructure builder should be available in conatiner registery within your project.
+- In Dockerfile, commented steps are for Infrastructure driven test
+if you consider developping test for your infrastructure uncomment them before building the image.
+
+- Infrastructure builder will be created in Container Registery within your project. CHANGE [your-project-id] in cloudbuild.yaml and create a trigger so that Cloudbuild will create the image when you push your code.
+
+Then, Infrastructure builder should be available in conatiner registery within your project.
 
 The tool will inherit permissions from Cloud Build, so make sure to grant Cloud build the appropriate access rights to create resources in your project.
-
-See full set up instructions. https://github.com/Abdelwaheb-Hnaien/infrastructure-builder
 
 ## Demo :
 
@@ -93,10 +96,9 @@ You tell infrastructure builder about which config file to use by setting he ENV
 7) Set "Cloud build configuration file" to **/devops/Cloudbuld.yaml**
 
 8) Set <your-project-id> in Cloudbuild.yaml, change the backend bucket name in config.yaml
-  
-9) Commit and push to the repository created in step 3. 
-  
+
+9) Commit and push to the repository created in step 3.
+
 Check Cloud build history, resources should be created successefully :
 
 <img src="images/finish_build.png" width="70%"/>
-

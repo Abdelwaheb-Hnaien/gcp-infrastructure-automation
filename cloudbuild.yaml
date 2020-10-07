@@ -1,0 +1,14 @@
+---
+images:
+  - gcr.io/your-project-id/infrastructure_builder_beta:v0.1
+steps:
+  -
+    args:
+      - build
+      - "--network=cloudbuild"
+      - "-t"
+      - gcr.io/your-project-id/infrastructure_builder_beta:v0.1
+      - "-f"
+      - Dockerfile
+      - "."
+    name: gcr.io/cloud-builders/docker
