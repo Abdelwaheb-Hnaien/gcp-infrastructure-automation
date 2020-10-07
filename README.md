@@ -77,7 +77,7 @@ A Google storage bucket, and two compute instances, each instance will run a dif
 
 2) Create a Google storage backet to be used as a backend for Terraform
 
-2) Clone this repository.
+2) Clone this repository : https://github.com/Abdelwaheb-Hnaien/gcp-infrastructure-automation-demo
 
 __Notice__ : all folders are optionals except **DevOps**. It should be in the repository **root** folder and has the following structure:
 
